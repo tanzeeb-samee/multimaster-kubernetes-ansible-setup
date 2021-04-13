@@ -1,6 +1,0 @@
----
- - hosts: k8s-masters
-   become: true
-   roles:
-     - etcd-prerequisite
-   

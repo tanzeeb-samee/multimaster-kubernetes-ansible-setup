@@ -1,4 +1,0 @@
-
-{
-    "insecure-registries" : [ "docker-registry.bkash.com:5000" ]
-}

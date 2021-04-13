@@ -1,5 +1,0 @@
----
- - hosts: 
-   become: true
-   roles:
-     - pre-requisites-kubeadm
