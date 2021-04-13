@@ -1,5 +1,0 @@
----
- - hosts: k8s-master-01
-   become : true
-   roles : 
-     - calico
