@@ -1,0 +1,12 @@
+---
+ - name: copying insecure-registry configuration file to all workers
+   template:
+     src: daemon.json
+     dest: /etc/docker/daemon.json
+ 
+ - name: restart and enable docker
+   systemd: 
+     name: docker 
+     state: restarted
+     daemon_reload: yes
+     enabled: yes 

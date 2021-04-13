@@ -1,0 +1,12 @@
+##Cluster Information
+
+docker_version= 20.10.5
+kubernetes_version=1.9.6
+kubelet_version=1.9.6-0
+kubeadm_version=1.10.1
+virtual_ip=10.96.38.120
+first_master=10.96.38.90
+second_master=10.96.38.91
+third_master=10.96.38.92
+metallb-ip=10.96.38.120
+pod-network=192.168.0.0/16

@@ -1,0 +1,26 @@
+---   
+ - name: install docker dependencies
+   become: yes
+   yum:
+     name: "{{item}}"
+   with_items:
+     - yum-utils
+     - device-mapper-persistent-data
+     - lvm2
+     - policycoreutils-python
+     - python-pip
+  
+ - name: Enable extra repos
+   command: subscription-manager repos --enable=rhel-7-server-extras-rpms
+
+ - name: Install docker
+   yum: 
+     name: docker-ce-{{docker_version}} 
+     state: installed     
+
+ - name: restart and enable docker
+   systemd: 
+     name: docker 
+     state: restarted
+     daemon_reload: yes
+     enabled: yes

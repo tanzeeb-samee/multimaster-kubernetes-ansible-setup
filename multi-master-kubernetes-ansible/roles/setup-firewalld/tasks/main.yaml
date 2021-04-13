@@ -1,0 +1,21 @@
+---
+ - name: enable firewalld service
+   systemd:
+     state: restarted
+     name: firewalld
+     enabled: yes
+ 
+ - name: Open ports
+   firewalld:
+     port: "{{item}}"
+     permanent: true
+     state: enabled
+   with_items:
+     - 6443/tcp
+     - 2379-2380/tcp
+     - 10250-10252/tcp
+     - 179/tcp
+     - 30000-32767/tcp
+
+ - name: Reload firewalld
+   shell: firewall-cmd --reload
