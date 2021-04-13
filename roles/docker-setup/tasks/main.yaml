@@ -1,0 +1,18 @@
+---  
+ - name: Cleaning yum metadata
+   command: rm -fr /var/cache/yum/*
+   
+ - name: Removing yum metadata 
+   command: yum clean all 
+
+ - name: Install docker
+   yum: 
+     name: docker-ce-{{docker_version}} 
+     state: installed     
+
+ - name: restart and enable docker
+   systemd: 
+     name: docker 
+     state: restarted
+     daemon_reload: yes
+     enabled: yes
